@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Crud(){
+function Crud(props){
 const [url, setUrl] = useState('');
 const [crud, setCrud] = useState('');
 // const [text, setText] = useState('');
@@ -12,11 +12,14 @@ function handleChange(e) {
     console.log(url);
 }
 
-function addCrud(e){
+async function addCrud(e){
     e.preventDefault();
     setCrud(e.target.innerText);
+    let response = await fetch(url);
+    let data = await response.json();
+    console.log(data);
+        props.results(data)
     // setText(text + ' ' + crud);
-    console.log(crud);
 }
 
 
