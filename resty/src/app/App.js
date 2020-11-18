@@ -7,7 +7,6 @@ import Results from '../results/results.js';
 function App() {
   const [list, setList] = useState(false);
   console.log(list);
-
   return (
     <div>
     <Header />
