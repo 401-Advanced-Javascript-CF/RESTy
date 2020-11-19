@@ -1,10 +1,10 @@
 import React from 'react';
 import JSONPretty from 'react-json-pretty';
 
-function Results(props){
+function Results({results}){
     let data;
-    if(props.results){
-        data = <JSONPretty id="json-pretty" data={props.results}></JSONPretty>;
+    if(results){
+        data = <JSONPretty id="json-pretty" data={results}></JSONPretty>;
     }
     
     return(
