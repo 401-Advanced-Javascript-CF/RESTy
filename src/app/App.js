@@ -7,9 +7,11 @@ import History from '../history/history.js';
 
 function App() {
   const [list, setList] = useState(false);
-  const [storage, setStorage] = useState(true);
-  const [methods, setMethods] = useState('');
-  const [urls, setUrls] = useState('');
+  const [storage, setStorage] = useState(false);
+  const [url, setUrl] = useState('');
+  const [method, setMethod] = useState('');
+  const [headers, setHeaders] = useState(undefined);
+  const [body, setBody] = useState(undefined);
 
   function getStorage(name){
     return JSON.parse(localStorage.getItem(name))
@@ -17,9 +19,28 @@ function App() {
   return (
     <div>
     <Header />
-    <Crud results={setList} setStorage={setStorage} methods={methods} setMethods={setMethods} urls={urls} setUrls={setUrls} />
-    <Results results={list} />
-    <History storage={getStorage} isStorage={storage} setMethod={setMethods} setUrl={setUrls}/>
+    <Crud 
+    results={setList}
+    isStorage={storage}
+    setStorage={setStorage}
+    method={method}
+    setMethod={setMethod}
+    url={url}
+    setUrl={setUrl}
+    body={body}
+    setBody={setBody}
+    headers={headers}
+    setHeaders={setHeaders}
+     />
+    <Results
+    results={list}
+    />
+    <History
+    storage={getStorage}
+    isStorage={storage}
+    setMethod={setMethod}
+    setUrl={setUrl}
+    />
     <Footer />
     </div>
   );
