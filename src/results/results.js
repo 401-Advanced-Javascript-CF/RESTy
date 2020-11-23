@@ -1,16 +1,17 @@
 import React from 'react';
 import JSONPretty from 'react-json-pretty';
-
-function Results({results}){
+import './results.scss';
+function Results(props){
     let data;
-    if(results){
-        data = <JSONPretty id="json-pretty" data={results}></JSONPretty>;
+    // console.log(props.location.state);
+    if(props.list !== null){
+        data = <JSONPretty id="json-pretty" data={props.list}></JSONPretty>;
     }
-    
     return(
-        <ul>
-            {data}
-        </ul>
+        <div>
+        <p>Results</p>
+            <p>{data}</p>
+            </div>
     )
 }
 
